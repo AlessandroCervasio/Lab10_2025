@@ -13,6 +13,8 @@ class View(ft.UserControl):
         self._controller = None
         # graphical elements
         self._title = None
+        self._dd_stati=None
+        self._btn_statiRaggiungibili=None
 
         self._txt_result = None
 
@@ -28,6 +30,11 @@ class View(ft.UserControl):
         self._page.controls.append(row1)
         # List View where the reply is printed
         self._txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=False)
+        self._dd_stati= ft.Dropdown(expand=True, label="Stato Partenza")
+        self._btn_statiRaggiungibili=ft.ElevatedButton(text="Stati Raggiungibili", on_click=self._controller.handleStatiRaggiungibili, width=200)
+        row2 = ft.Row([self._dd_stati, self._btn_statiRaggiungibili], alignment=ft.MainAxisAlignment.CENTER, width=500)
+        self._page.controls.append(row2)
+
         self._page.controls.append(self._txt_result)
         self._page.update()
 
